@@ -1,3 +1,14 @@
+:Root {--faq-primary: #0284c7;         /* Learnera Primary Accent */
+  --faq-primary-hover: #0369a1;   /* Hover Primary */
+  --faq-primary-light: #e0f2fe;   /* Accent Light Tint */
+  --faq-text: #0f172a;            /* Primary Heading/Text */
+  --faq-muted: #64748b;           /* Body & Subtitle Muted Gray */
+  --faq-bg: #f8fafc;              /* Section Background */
+  --faq-card-bg: #ffffff;         /* Card Background */
+  --faq-border: #e2e8f0;          /* Subtle Border */
+  --faq-radius: 12px;
+  --faq-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 * {
   margin: 0;
   padding: 0;
@@ -684,4 +695,213 @@ hr {
   font-weight: 540;
   font-family: lato;
   margin-bottom: 50px;
+}
+
+.faq {
+  padding: 80px 20px;
+  background-color: var(--faq-bg);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--faq-text);
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* --- Section Header --- */
+.faq-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.faq-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: var(--faq-primary-light);
+  color: var(--faq-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 50px;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.faq-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--faq-text);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.faq-subtitle {
+  font-size: 1.05rem;
+  color: var(--faq-muted);
+}
+
+/* --- Accordion Items --- */
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.faq-item {
+  background: var(--faq-card-bg);
+  border: 1px solid var(--faq-border);
+  border-radius: var(--faq-radius);
+  overflow: hidden;
+  transition: var(--faq-transition);
+}
+
+.faq-item:hover {
+  border-color: var(--faq-primary);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--faq-text);
+  cursor: pointer;
+  text-align: left;
+  transition: var(--faq-transition);
+}
+
+.faq-question:hover {
+  color: var(--faq-primary);
+}
+
+.faq-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--faq-bg);
+  color: var(--faq-muted);
+  transition: var(--faq-transition);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+  background-color: var(--faq-primary-light);
+  color: var(--faq-primary);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+  color: var(--faq-muted);
+  line-height: 1.6;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+/* --- Question Submission Card --- */
+.faq-ask-card {
+  background: var(--faq-card-bg);
+  border: 1px solid var(--faq-border);
+  border-radius: var(--faq-radius);
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.faq-ask-header h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--faq-text);
+}
+
+.faq-ask-header p {
+  font-size: 0.95rem;
+  color: var(--faq-muted);
+  margin-bottom: 24px;
+}
+
+.faq-input-group {
+  display: flex;
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.faq-input-group input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 1px solid var(--faq-border);
+  border-radius: 8px;
+  font-size: 0.98rem;
+  outline: none;
+  transition: var(--faq-transition);
+  background-color: #fafafa;
+}
+
+.faq-input-group input:focus {
+  border-color: var(--faq-primary);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px var(--faq-primary-light);
+}
+
+.faq-submit-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background-color: var(--faq-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--faq-transition);
+  white-space: nowrap;
+}
+
+.faq-submit-btn:hover {
+  background-color: var(--faq-primary-hover);
+  transform: translateY(-1px);
+}
+
+.faq-form-feedback {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.faq-form-feedback.success {
+  color: #16a34a;
+}
+
+/* Responsive adjustment */
+@media (max-width: 640px) {
+  .faq-input-group {
+    flex-direction: column;
+  }
+  .faq-submit-btn {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+section.learnera-offers{
+  height: 500px;
+  background-color: rgb(260, 260,260);
 }
