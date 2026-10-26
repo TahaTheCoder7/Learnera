@@ -4,422 +4,1018 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Explore ByteHex Tech courses, including web development, programming, frontend technologies, and digital skills.">
+    <!-- SEO Meta Tags -->
+    <title>LEARNERA | Course Evaluation & Tech Education Portal | Powered by ByteHex Tech</title>
+    <meta name="description" content="Discover, Learn, and Demonstrate with Learnera. Master Full-Stack Web Development, Python, and AI through live cohorts, free learning internships, and verifiable credentials powered by ByteHex Tech.">
+    <meta name="keywords" content="Learnera, ByteHex Tech, Web Development, Python Programming, Artificial Intelligence, Tech Internships, Muhammad Taha, Muhammad Mubeen">
+    <meta name="author" content="ByteHex Tech">
 
-    <title>Course Evaluation | Learnera</title>
+    <!-- OpenGraph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="LEARNERA - Discover. Learn. Demonstrate.">
+    <meta property="og:description" content="Empowering the next generation of engineers with industry-grade courses, live mentorship, and verifiable internship pathways.">
+    <meta property="og:image" content="./Assets/logo/Logo.png">
+    <meta property="twitter:card" content="summary_large_image">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./Assets/logo/Logo.png">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Fixed folder case from 'style' to 'Style'[cite: 1] -->
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="./Assets/Style/style.css">
 </head>
 
 <body>
-    <section class="hero-section">
-        <div class="pulse-badge">
-            <div class="badge-dot"></div>
-            <div class="badge-text">LEARNERA - Course Evaluation Portal</div>
-        </div>
-        <h1><span class="gradient">Discover.</span> Learn. Demonstrate.</h1>
-        <p>Explore tech courses, discover new ideas, and turn your curiosity into practical knowledge. Choose your path, explore topics, and take the next step in your learning journey.</p>
 
-            <a href="#overview" class="cta-btn">Explore <i class="fa-solid fa-arrow-right"></i></a>
+    <!-- 1. Top Announcement Bar -->
+    <aside class="top-banner" aria-label="Announcement">
+        <span>🚀 <strong>2026 Live Cohort Admissions Open</strong> — Learn Directly from Industry Mentors!</span>
+        <a href="#courses" class="open-enroll-modal" data-course="Modern Web & App Development (MERN Stack)">Lock Your Seat &rarr;</a>
+    </aside>
+
+    <!-- 2. Sticky Glassmorphism Header & Navbar -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="#hero" class="brand-logo" aria-label="Learnera Home">
+                <img src="./Assets/logo/Logo.png" alt="Learnera Logo">
+                <span class="brand-text">LEARN<span>ERA</span><span class="dot">.</span></span>
+            </a>
+
+            <nav class="nav-links" aria-label="Main Navigation">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#overview" class="nav-link">Overview</a>
+                <a href="#why-us" class="nav-link">Why Us</a>
+                <a href="#courses" class="nav-link">Courses</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
+                <a href="#mentors" class="nav-link">Mentors</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button type="button" class="btn btn-primary btn-sm btn-enroll-nav open-enroll-modal" data-course="Modern Web & App Development (MERN Stack)">
+                    <i class="fa-solid fa-bolt"></i> Lock Your Seat
+                </button>
+                <button type="button" class="mobile-menu-btn" aria-label="Open Mobile Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+        <div class="mobile-nav-panel">
+            <div class="mobile-nav-header">
+                <a href="#hero" class="brand-logo">
+                    <img src="./Assets/logo/Logo.png" alt="Learnera Logo">
+                    <span class="brand-text">LEARN<span>ERA</span><span class="dot">.</span></span>
+                </a>
+                <button type="button" class="mobile-nav-close" aria-label="Close Mobile Menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav-links">
+                <a href="#hero" class="mobile-nav-link">Home</a>
+                <a href="#overview" class="mobile-nav-link">Overview</a>
+                <a href="#why-us" class="mobile-nav-link">Why Choose Us</a>
+                <a href="#courses" class="mobile-nav-link">Featured Courses</a>
+                <a href="#roadmap" class="mobile-nav-link">Learning Roadmap</a>
+                <a href="#mentors" class="mobile-nav-link">Our Mentors</a>
+                <a href="#testimonials" class="mobile-nav-link">Success Stories</a>
+                <a href="#faq" class="mobile-nav-link">FAQs</a>
+            </nav>
+            <button type="button" class="btn btn-primary open-enroll-modal" style="width: 100%;" data-course="Modern Web & App Development (MERN Stack)">
+                <i class="fa-solid fa-bolt"></i> Lock Your Seat
+            </button>
+        </div>
+    </div>
+
+    <!-- 3. Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-glow-bg"></div>
+        <div class="hero-glow-left"></div>
+
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="pulse-badge">
+                    <div class="badge-dot"></div>
+                    <span>LEARNERA — Course Evaluation & Tech Portal</span>
+                </div>
+
+                <h1 class="hero-title">
+                    <span class="gradient-text">Discover.</span> Learn. Demonstrate.
+                </h1>
+
+                <p class="hero-description">
+                    Explore high-demand tech courses, master modern full-stack development, and turn curiosity into proven engineering ability. Choose your path, collaborate on live projects, and launch your career with verified credentials.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#courses" class="btn btn-primary btn-icon-right">
+                        Explore Cohorts <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <button type="button" class="btn btn-secondary" id="openDemoBtn">
+                        <i class="fa-solid fa-circle-play"></i> Platform Overview
+                    </button>
+                </div>
+
+                <div class="hero-trust-row">
+                    <div class="trust-item">
+                        <i class="fa-solid fa-star"></i>
+                        <span>4.9/5 Student Rating</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        <span>2,500+ Students Mentored</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span>Verifiable Digital Badges</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>Guaranteed Internship Track</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Showcase Card Visual -->
+            <div class="hero-visual">
+                <div class="hero-card-stack">
+                    <div class="hero-main-img-wrapper">
+                        <img src="./Assets/Images/Hero/Hero-1.jpg" alt="Learnera Students in Tech Workshop">
+                    </div>
+
+                    <!-- Floating Badges -->
+                    <div class="floating-badge badge-top-right">
+                        <div class="floating-badge-icon emerald">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div class="floating-badge-text">
+                            <strong>Free Learning Internships</strong>
+                            <span>Integrated into Curriculum</span>
+                        </div>
+                    </div>
+
+                    <div class="floating-badge badge-bottom-left">
+                        <div class="floating-badge-icon">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div class="floating-badge-text">
+                            <strong>Powered by ByteHex Tech</strong>
+                            <span>Industry-Grade Standards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- 4. Key Metrics / Stats Counter Bar -->
+    <section class="stats-section" aria-label="Key Platform Metrics">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">2,500+</div>
+                    <div class="stat-label">Active Learners & Alumni</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Project Completion Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Production Capstones Built</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Verifiable Certificates</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Overview Section -->
     <section class="overview" id="overview">
-         <div class="pill">
-            Overview
-         </div>
-         <h1>Learnera Courses & <span class="gradient">Description</span></h1>
-         <div class="quotes">"The people who are crazy enough to think they can change the world are the ones who do." <span class="author">__ Steve Jobs</span></div>
-    <div class="description">
-         <h1>Description</h1>
-         <hr>
-<p>
-        Learnera empowers students to explore technology courses, develop practical skills, and discover opportunities in programming, web development, and other IT fields. Our goal is to make learning more accessible, meaningful, and career-focused.
+        <div class="container">
+            <div class="section-header">
+                <div class="section-pill">
+                    <i class="fa-solid fa-compass"></i> Overview
+                </div>
+                <h2 class="section-title">Learnera Programs & <span class="gradient-text">Ecosystem</span></h2>
+                <p class="section-quote">
+                    "The people who are crazy enough to think they can change the world are the ones who do."
+                    <span class="author">— Steve Jobs</span>
+                </p>
+            </div>
 
-        <div class="description-more">
-            Through structured learning paths, Courses, internships, bootcamps, and CodeFest activities, students can expand their knowledge, strengthen their portfolios, and prepare for future opportunities in technology.</p>
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h3>Empowering Students from Fundamentals to Industry Impact</h3>
+                    <p>
+                        Learnera empowers students to explore technology courses, develop practical skills, and discover high-value opportunities in programming, web development, and other IT fields. Our goal is to make learning more accessible, meaningful, and career-focused.
+                    </p>
+                    <p>
+                        Through structured learning paths, intensive courses, hands-on internships, bootcamps, and CodeFest activities, students expand their real-world knowledge, build standout portfolios, and prepare for top-tier technology roles.
+                    </p>
+
+                    <div class="overview-pillars">
+                        <div class="overview-pillar-item">
+                            <div class="pillar-icon"><i class="fa-solid fa-code"></i></div>
+                            <div class="pillar-info">
+                                <h4>Hands-on Code Reviews</h4>
+                                <p>Receive detailed feedback on your repositories from senior engineers.</p>
+                            </div>
+                        </div>
+                        <div class="overview-pillar-item">
+                            <div class="pillar-icon"><i class="fa-solid fa-users-gear"></i></div>
+                            <div class="pillar-info">
+                                <h4>Learning Internships</h4>
+                                <p>Bridge theoretical concepts into industry workflows and team sprints.</p>
+                            </div>
+                        </div>
+                        <div class="overview-pillar-item">
+                            <div class="pillar-icon"><i class="fa-solid fa-trophy"></i></div>
+                            <div class="pillar-info">
+                                <h4>High-Stakes CodeFests</h4>
+                                <p>Compete, build rapid prototypes, and showcase skills to recruiters.</p>
+                            </div>
+                        </div>
+                        <div class="overview-pillar-item">
+                            <div class="pillar-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="pillar-info">
+                                <h4>Verifiable Badges</h4>
+                                <p>Share tamper-proof credentials directly on LinkedIn and your resume.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1.5rem;">
+                        <a href="#courses" class="btn btn-primary btn-icon-right">
+                            Explore All Courses <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <button type="button" class="btn btn-secondary open-enroll-modal" data-course="Modern Web & App Development (MERN Stack)">
+                            Talk to Admissions
+                        </button>
+                    </div>
+                </div>
+
+                <div class="overview-visual">
+                    <div class="overview-frame">
+                        <img src="./Assets/Images/Hero/Hero-2.jpg" alt="Developer Coding in Modern Workspace">
+                    </div>
+                    <div class="tag-banner">
+                        <span class="tag-dot"></span>
+                        <span>Think &bull; Hack &bull; Launch</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Why Choose Us Section -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-pill">
+                    <i class="fa-solid fa-sparkles"></i> Why Us
+                </div>
+                <h2 class="section-title">Why Aspiring Developers Choose <span class="gradient-text">LEARNERA</span></h2>
+                <p class="section-quote">
+                    "Success is not final; failure is not fatal: It is the courage to continue that counts."
+                    <span class="author">— Winston S. Churchill</span>
+                </p>
+            </div>
+
+            <div class="why-cards-grid">
+                <!-- Card 01 -->
+                <div class="why-card">
+                    <div class="why-card-top">
+                        <div class="why-card-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                        <span class="why-card-num">01</span>
+                    </div>
+                    <h3>Most Affordable Courses</h3>
+                    <p>Get top-tier tech education at a fraction of the cost, ensuring elite quality without any heavy financial burden or hidden subscription fees.</p>
+                </div>
+
+                <!-- Card 02 -->
+                <div class="why-card">
+                    <div class="why-card-top">
+                        <div class="why-card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <span class="why-card-num">02</span>
+                    </div>
+                    <h3>Free Learning Internships</h3>
+                    <p>Gain practical, real-world knowledge through structured free learning internships built directly into your curriculum under senior mentorship.</p>
+                </div>
+
+                <!-- Card 03 -->
+                <div class="why-card">
+                    <div class="why-card-top">
+                        <div class="why-card-icon"><i class="fa-solid fa-briefcase"></i></div>
+                        <span class="why-card-num">03</span>
+                    </div>
+                    <h3>Job-Ready Placement Tracks</h3>
+                    <p>Stand out and unlock exclusive referrals for hands-on industrial internships and junior developer roles inside growing tech ecosystems.</p>
+                </div>
+
+                <!-- Card 04 -->
+                <div class="why-card">
+                    <div class="why-card-top">
+                        <div class="why-card-icon"><i class="fa-solid fa-rocket"></i></div>
+                        <span class="why-card-num">04</span>
+                    </div>
+                    <h3>Career Hackathons & CodeFests</h3>
+                    <p>Participate in high-impact hackathons, fast-paced bootcamps, and codefests designed to supercharge your portfolio and problem-solving velocity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Learning Roadmap / How It Works -->
+    <section class="roadmap-section" id="roadmap">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-pill">
+                    <i class="fa-solid fa-route"></i> Progression
+                </div>
+                <h2 class="section-title">Your 4-Step <span class="gradient-text">Learning Roadmap</span></h2>
+                <p class="section-quote">
+                    A proven trajectory engineered to transform beginners into production-ready engineers.
+                </p>
+            </div>
+
+            <div class="roadmap-timeline">
+                <div class="timeline-step">
+                    <div class="step-node"><i class="fa-solid fa-lightbulb"></i></div>
+                    <div class="step-card">
+                        <span class="step-number">Step 01</span>
+                        <h4>Core Fundamentals</h4>
+                        <p>Master foundational computer science logic, language syntax, and problem solving through weekly interactive sessions.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-node"><i class="fa-solid fa-code-fork"></i></div>
+                    <div class="step-card">
+                        <span class="step-number">Step 02</span>
+                        <h4>Production Capstones</h4>
+                        <p>Build real, deployable web applications and algorithmic pipelines with team git branching and peer code reviews.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-node"><i class="fa-solid fa-laptop-file"></i></div>
+                    <div class="step-card">
+                        <span class="step-number">Step 03</span>
+                        <h4>Learning Internship</h4>
+                        <p>Work on simulated client tickets, sprint planning, and agile standups during your free learning internship.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-node"><i class="fa-solid fa-award"></i></div>
+                    <div class="step-card">
+                        <span class="step-number">Step 04</span>
+                        <h4>Credentials & Placement</h4>
+                        <p>Earn verifiable digital credentials, polish your GitHub profile, and get connected to hiring partners.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Featured Courses Section -->
+    <section class="featured-courses" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-pill">
+                    <i class="fa-solid fa-graduation-cap"></i> Featured Tracks
+                </div>
+                <h2 class="section-title">Explore Our Offered <span class="gradient-text">Tech Programs</span></h2>
+                <p class="section-quote">
+                    "Start where you are. Use what you have. Do what you can."
+                    <span class="author">— Arthur Ashe</span>
+                </p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="course-filters" role="tablist">
+                <button type="button" class="filter-btn active" data-filter="all">All Programs</button>
+                <button type="button" class="filter-btn" data-filter="web">Web & App Dev</button>
+                <button type="button" class="filter-btn" data-filter="python">Python Programming</button>
+                <button type="button" class="filter-btn" data-filter="aiml">AI & Machine Learning</button>
+                <button type="button" class="filter-btn" data-filter="git">Git & DevOps</button>
+            </div>
+
+            <div class="courses-grid">
+                <!-- Course 1: Modern Web Dev -->
+                <article class="course-card" data-category="web">
+                    <div class="course-media">
+                        <img src="./Assets/Images/Courses/Web Dev.jpg" alt="Modern Web & App Development">
+                        <div class="course-badge-overlay">
+                            <div class="pulse-badge">
+                                <div class="badge-dot"></div>
+                                <span>2026 LIVE COHORT</span>
+                            </div>
+                        </div>
+                        <div class="course-rating-overlay">
+                            <i class="fa-solid fa-star"></i> 4.9 (160+ reviews)
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta-tags">
+                            <span class="meta-tag">MERN Stack</span>
+                            <span class="meta-tag">Next.js</span>
+                            <span class="meta-tag">REST APIs</span>
+                        </div>
+                        <h3>Modern Web & App Development</h3>
+                        <p>Learn professional MERN stack development from scratch and build a portfolio and resume that command top tech offers.</p>
+                        <ul class="course-meta-list">
+                            <li><i class="fa-regular fa-clock"></i> 1 Year</li>
+                            <li><i class="fa-solid fa-signal"></i> Zero to Hero</li>
+                            <li><i class="fa-solid fa-certificate"></i> Verified Certificate</li>
+                        </ul>
+                        <div class="course-footer">
+                            <a href="#course-details" class="course-detail-link open-course-details" data-course-key="webdev">
+                                View Details <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+                            <button type="button" class="btn btn-primary btn-sm open-enroll-modal" data-course="Modern Web & App Development (MERN Stack)">
+                                Lock Seat
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Course 2: Python Programming -->
+                <article class="course-card" data-category="python">
+                    <div class="course-media">
+                        <img src="./Assets/Images/Courses/Python.jpg" alt="Python Programming">
+                        <div class="course-badge-overlay">
+                            <div class="pulse-badge">
+                                <div class="badge-dot"></div>
+                                <span>2026 LIVE COHORT</span>
+                            </div>
+                        </div>
+                        <div class="course-rating-overlay">
+                            <i class="fa-solid fa-star"></i> 4.9 (110+ reviews)
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta-tags">
+                            <span class="meta-tag">Python 3</span>
+                            <span class="meta-tag">OOP</span>
+                            <span class="meta-tag">Automation</span>
+                        </div>
+                        <h3>Python Programming & Automation</h3>
+                        <p>Master Python from absolute syntax to object-oriented architecture, data structures, and production-ready automation scripts.</p>
+                        <ul class="course-meta-list">
+                            <li><i class="fa-regular fa-clock"></i> 12 Months</li>
+                            <li><i class="fa-solid fa-signal"></i> Beginner to Advanced</li>
+                            <li><i class="fa-solid fa-certificate"></i> Verifiable Credentials</li>
+                        </ul>
+                        <div class="course-footer">
+                            <a href="#course-details" class="course-detail-link open-course-details" data-course-key="python">
+                                View Details <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+                            <button type="button" class="btn btn-primary btn-sm open-enroll-modal" data-course="Python Programming & System Automation">
+                                Lock Seat
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Course 3: Machine Learning & AI -->
+                <article class="course-card" data-category="aiml">
+                    <div class="course-media">
+                        <img src="./Assets/Images/Courses/AI & ML.jpg" alt="Machine Learning & AI">
+                        <div class="course-badge-overlay">
+                            <div class="pulse-badge">
+                                <div class="badge-dot"></div>
+                                <span>2026 LIVE COHORT</span>
+                            </div>
+                        </div>
+                        <div class="course-rating-overlay">
+                            <i class="fa-solid fa-star"></i> 4.8 (95+ reviews)
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta-tags">
+                            <span class="meta-tag">NumPy/Pandas</span>
+                            <span class="meta-tag">Scikit-Learn</span>
+                            <span class="meta-tag">Neural Nets</span>
+                        </div>
+                        <h3>Machine Learning & AI Foundations</h3>
+                        <p>Understand the foundations of intelligent systems, exploratory data science, model training, and introductory deep learning architectures.</p>
+                        <ul class="course-meta-list">
+                            <li><i class="fa-regular fa-clock"></i> 4 Weeks</li>
+                            <li><i class="fa-solid fa-signal"></i> Practical Bootcamp</li>
+                            <li><i class="fa-solid fa-certificate"></i> Verified Certificate</li>
+                        </ul>
+                        <div class="course-footer">
+                            <a href="#course-details" class="course-detail-link open-course-details" data-course-key="aiml">
+                                View Details <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+                            <button type="button" class="btn btn-primary btn-sm open-enroll-modal" data-course="Machine Learning & Artificial Intelligence">
+                                Lock Seat
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Course 4: Git & GitHub -->
+                <article class="course-card" data-category="git">
+                    <div class="course-media">
+                        <img src="./Assets/Images/Courses/git & github.jpg" alt="Git and GitHub Collaboration">
+                        <div class="course-badge-overlay">
+                            <div class="pulse-badge">
+                                <div class="badge-dot"></div>
+                                <span>2026 LIVE COHORT</span>
+                            </div>
+                        </div>
+                        <div class="course-rating-overlay">
+                            <i class="fa-solid fa-star"></i> 5.0 (220+ reviews)
+                        </div>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-meta-tags">
+                            <span class="meta-tag">Version Control</span>
+                            <span class="meta-tag">GitFlow</span>
+                            <span class="meta-tag">GitHub Actions</span>
+                        </div>
+                        <h3>Git, GitHub & DevOps Collaboration</h3>
+                        <p>Master industrial version control, branching strategies, rebase techniques, conflict resolution, and automated CI/CD deployment pipelines.</p>
+                        <ul class="course-meta-list">
+                            <li><i class="fa-regular fa-clock"></i> 2 Weeks</li>
+                            <li><i class="fa-solid fa-signal"></i> Beginner Friendly</li>
+                            <li><i class="fa-solid fa-certificate"></i> Verified Certificate</li>
+                        </ul>
+                        <div class="course-footer">
+                            <a href="#course-details" class="course-detail-link open-course-details" data-course-key="git">
+                                View Details <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+                            <button type="button" class="btn btn-primary btn-sm open-enroll-modal" data-course="Git, GitHub & DevOps Team Collaboration">
+                                Lock Seat
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="courses-bottom-cta">
+                <button type="button" class="btn btn-primary open-enroll-modal" data-course="Modern Web & App Development (MERN Stack)">
+                    <i class="fa-solid fa-shield-halved"></i> Lock Your Seat in 2026 Live Cohort &rarr;
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Mentors Section -->
+    <section class="mentors" id="mentors">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-pill">
+                    <i class="fa-solid fa-chalkboard-user"></i> Leadership & Guidance
+                </div>
+                <h2 class="section-title">Meet Our <span class="gradient-text">Professional Mentors</span></h2>
+                <p class="section-quote">
+                    "You just can't beat the person who never gives up."
+                    <span class="author">— Babe Ruth</span>
+                </p>
+            </div>
+
+            <div class="mentors-grid">
+                <!-- Mentor 1 -->
+                <div class="mentor-card">
+                    <div class="mentor-avatar-wrapper">
+                        <img src="./Assets/Images/Hero/Hero-3.jpg" alt="Sir Muhammad Taha" class="mentor-avatar">
+                        <div class="mentor-badge" title="Verified Master Trainer">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    </div>
+                    <h3>SIR Muhammad Taha</h3>
+                    <div class="mentor-role">Founder & CEO @ BYTEHEX TECH & LEARNERA</div>
+                    <p class="mentor-bio">
+                        Master Trainer and Senior Full-Stack Software Engineer with years of expertise guiding thousands of students into software engineering careers across modern MERN architecture and cloud technologies.
+                    </p>
+                    <div class="mentor-skills">
+                        <span class="mentor-skill-pill">MERN Stack</span>
+                        <span class="mentor-skill-pill">System Architecture</span>
+                        <span class="mentor-skill-pill">AI & Cloud</span>
+                        <span class="mentor-skill-pill">Lead Trainer</span>
+                    </div>
+                    <div class="mentor-socials">
+                        <a href="https://linkedin.com/company/bytehex-tech" target="_blank" rel="noopener noreferrer" class="mentor-social-btn" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/tahathecoder7" target="_blank" rel="noopener noreferrer" class="mentor-social-btn" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://x.com/ByteHexTech" target="_blank" rel="noopener noreferrer" class="mentor-social-btn" aria-label="Twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mentor 2 -->
+                <div class="mentor-card">
+                    <div class="mentor-avatar-wrapper">
+                        <img src="./Assets/Images/Hero/Hero-1.jpg" alt="Sir Muhammad Mubeen" class="mentor-avatar">
+                        <div class="mentor-badge" title="Verified Operations Lead">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    </div>
+                    <h3>SIR Muhammad Mubeen</h3>
+                    <div class="mentor-role">Co-Founder & COO @ BYTEHEX TECH & LEARNERA</div>
+                    <p class="mentor-bio">
+                        Professional Mentor and Operations Director specializing in technical curriculum strategy, student project execution, career development pipelines, and hands-on Python/DevOps mentorship.
+                    </p>
+                    <div class="mentor-skills">
+                        <span class="mentor-skill-pill">Python</span>
+                        <span class="mentor-skill-pill">Curriculum Design</span>
+                        <span class="mentor-skill-pill">DevOps</span>
+                        <span class="mentor-skill-pill">Career Coach</span>
+                    </div>
+                    <div class="mentor-socials">
+                        <a href="https://linkedin.com/company/bytehex-tech" target="_blank" rel="noopener noreferrer" class="mentor-social-btn" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://instagram.com/bytehextech" target="_blank" rel="noopener noreferrer" class="mentor-social-btn" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/ByteHexTech" target="_blank" rel="noopener noreferrer" class="mentor-social-btn" aria-label="Twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mentorship Promise Banner -->
+            <div class="mentorship-promise">
+                <div class="promise-content">
+                    <h4>The Learnera Mentorship Commitment</h4>
+                    <p>Every student receives weekly live interactive doubt resolution, 1-on-1 code reviews on pull requests, and dedicated Discord/WhatsApp assistance directly from Sir Taha and Sir Mubeen.</p>
+                </div>
+                <button type="button" class="btn btn-secondary open-enroll-modal" data-course="Modern Web & App Development (MERN Stack)">
+                    Join Mentorship Cohort
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Student Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-pill">
+                    <i class="fa-solid fa-heart"></i> Student Feedback
+                </div>
+                <h2 class="section-title">What Our <span class="gradient-text">Graduates Say</span></h2>
+                <p class="section-quote">
+                    Real outcomes from students who turned their dedication into verified engineering careers.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Review 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "The hands-on learning internship after the MERN stack modules completely changed my confidence. Sir Taha personally reviewed my backend authentication code and helped me land my first junior developer role!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AZ</div>
+                        <div class="author-details">
+                            <h4>Ali Zain</h4>
+                            <span>Full-Stack Web Dev Cohort</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Most academies only teach syntax, but Learnera taught us how to think like software engineers. The CodeFest hackathon pushed me to build a full automated pipeline in Python in 48 hours."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">FM</div>
+                        <div class="author-details">
+                            <h4>Fatima Malik</h4>
+                            <span>Python & Automation Track</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "The Git and GitHub bootcamp is a game changer. I never understood branch rebasing and CI/CD until Sir Mubeen broke it down step-by-step with practical command line exercises."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">HR</div>
+                        <div class="author-details">
+                            <h4>Hamza Raza</h4>
+                            <span>DevOps & Git Sprint</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container faq-container">
+            <div class="section-header">
+                <div class="section-pill">
+                    <i class="fa-solid fa-circle-question"></i> Got Questions?
+                </div>
+                <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+                <p class="section-quote">
+                    Everything you need to know about Learnera courses, internships, bootcamps, and live cohorts.
+                </p>
+            </div>
+
+            <div class="faq-accordion">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false">
+                        <span>What programs and learning tracks does Learnera offer?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Learnera provides a complete tech ecosystem offering self-paced & guided <strong>Courses</strong>, hands-on <strong>Learning Internships</strong>, production-focused <strong>Job-Ready Internships</strong>, intensive <strong>Bootcamps</strong>, and competitive <strong>CodeFests</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false">
+                        <span>What is the difference between Learning Internships and Job-Ready Internships?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p><strong>Learning Internships</strong> focus on foundational skill-building through structured projects and mentor guidance. <strong>Job-Ready Internships</strong> simulate real company environments with complex production codebases, sprint reviews, and career-readiness standards.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false">
+                        <span>Are the certificates issued by Learnera verifiable?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Yes! Every candidate who completes a course, internship, or bootcamp receives a uniquely verifiable digital certificate with a verification code that can be showcased on LinkedIn or submitted directly to recruiters.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false">
+                        <span>Do I need prior coding experience to join beginner cohorts?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>No prior technical background is required for our beginner-level tracks. Our mentors start with absolute foundational concepts before building up to advanced production topics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false">
+                        <span>How do live cohorts and mentor Q&A sessions work?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Live cohorts feature weekly interactive sessions led by industry experts, alongside dedicated Discord and WhatsApp groups where you can ask questions and receive one-on-one assistance directly from your mentors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Submission Card -->
+            <div class="faq-ask-card">
+                <h3>Have a Question Not Listed Here?</h3>
+                <p>Submit your question below or chat with our admissions counselors directly.</p>
+                <form id="faqForm" class="faq-input-group">
+                    <input type="text" placeholder="Type your question or query here..." required>
+                    <button type="submit" class="btn btn-primary">
+                        Ask Mentors <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Final High-Impact CTA Banner -->
+    <section class="final-cta" aria-labelledby="finalCtaTitle">
+        <div class="pulse-badge" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); color: #93c5fd;">
+            <div class="badge-dot" style="background: #60a5fa;"></div>
+            <span>YOUR FUTURE STARTS HERE</span>
         </div>
 
-        <a href="courses.html" class="cta-btn">
-            Read More <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <div class="img"><img src="Assets/Images/Hero/Hero-2.jpg" alt="dev"></div>
-        <div class="rounded">Think . Hack . Launch</div>
-        </section>
+        <h2 id="finalCtaTitle">
+            Ready to Turn Your Knowledge Into <span class="gradient-text">High-Demand Skills?</span>
+        </h2>
 
-        <section class="courses">
-    <div class="why-us">
-        <div class="pill">Why Us</div>
-    <h1>Why Choose <span class="gradient">LEARNERA</span></h1>
-    <div class="quotes">"Success is not final; failure is not fatal: It is the courage to continue that counts."<span class="author">__Winston S. Churchill</span></div>
-<div class="cards-container">
-    <div class="card-item">
-        <div class="card">
-            <span class="card-number">01</span>
-            <h3>Most Affordable Courses</h3>
-            <p>Get top-tier tech education at a fraction of the cost, ensuring high quality without the heavy financial burden.</p>
-        </div>
-    </div>
-
-    <div class="card-item">
-        <div class="card">
-            <span class="card-number">02</span>
-            <h3>Free Learning Internships</h3>
-            <p>Gain practical, real-world knowledge through structured free learning internships built right into your curriculum.</p>
-        </div>
-    </div>
-
-    <div class="card-item">
-        <div class="card">
-            <span class="card-number">03</span>
-            <h3>Chance of Job - Ready Internships after Learning Internships</h3>
-            <p>Stand out and earn exclusive opportunities for hands-on industrial internships.</p>
-        </div>
-    </div>
-
-    <div class="card-item">
-        <div class="card">
-            <span class="card-number">04</span>
-            <h3>Career Enhancement Participations</h3>
-            <p>Participate in high-impact hackathons, bootcamps, and codefests designed to supercharge your portfolio.</p>
-        </div>
-    </div>
-</div>
-</div> <!-- closes .why-us -->
-
-<div class="featured-courses">
-    <div class="pill">Featured Courses</div>
-    <h1>Explore Our <span class="gradient">Offered</span> Courses</h1>
-    <div class="quotes">"Start where you are. Use what you have. Do what you can." <span class="author">__ Arthur Ashe</span></div>
- <div class="courses-grid">
-
-  <article class="course-card">
-    <div class="course-media">
-      <img src="Assets/Images/Courses/Python.jpg" alt="Python Programming">
-      <div class="pulse-badge">
-        <div class="badge-dot"></div>
-        <div class="badge-text">2026 Live COHORT</div>
-      </div>
-    </div>
-    <div class="course-body">
-      <h3>Python Programming</h3>
-      <p>Learn Python from scratch, from syntax and logic to real projects you can add to your portfolio.</p>
-      <ul class="course-meta">
-        <li>12 Months</li>
-        <li>Beginner to Advanced</li>
-        <li>Verifiable Credentials</li>
-      </ul>
-      <a href="python.html" class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-  </article>
-
-  <article class="course-card">
-    <div class="course-media">
-      <img src="Assets/Images/Courses/Web Dev.jpg" alt="Web Development">
-      <div class="pulse-badge">
-        <div class="badge-dot"></div>
-        <div class="badge-text">2026 Live COHORT</div>
-      </div>
-    </div>
-    <div class="course-body">
-      <h3>Modern Web & App Development</h3>
-      <p>Learn professional MERN stack development from scratch and build a portfolio and resume that stand out.</p>
-      <ul class="course-meta">
-        <li>1 Year</li>
-        <li>Zero to Hero</li>
-        <li>Verified Certificate</li>
-      </ul>
-      <a href="web-dev.html" class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-  </article>
-
-  <article class="course-card">
-    <div class="course-media">
-      <img src="Assets/Images/Courses/AI & ML.jpg" alt="Machine Learning and AI">
-      <div class="pulse-badge">
-        <div class="badge-dot"></div>
-        <div class="badge-text">2026 Live COHORT</div>
-      </div>
-    </div>
-    <div class="course-body">
-      <h3>Machine Learning & Artificial Intelligence</h3>
-      <p>Understand the fundamentals of machine learning and AI, and build your first intelligent models.</p>
-      <ul class="course-meta">
-        <li>4 Weeks</li>
-        <li>Beginner Friendly</li>
-        <li>Verified Certificate</li>
-      </ul>
-      <a href="ai.html" class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-  </article>
-
-  <article class="course-card">
-    <div class="course-media">
-      <img src="Assets/Images/Courses/git & github.jpg" alt="Git and GitHub">
-      <div class="pulse-badge">
-        <div class="badge-dot"></div>
-        <div class="badge-text">2026 Live COHORT</div>
-      </div>
-    </div>
-    <div class="course-body">
-      <h3>Git & GitHub</h3>
-      <p>Master version control, branching and team collaboration with Git and GitHub.</p>
-      <ul class="course-meta">
-        <li>2 Weeks</li>
-        <li>Beginner Friendly</li>
-        <li>Verified Certificate</li>
-      </ul>
-      <a href="git.html" class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-      </article>
-
-</div>
-<a href="register.html" class="cta-btn">Lock Your Seat <i class="fa-solid fa-arrow-right"></i></a>
-</div> <!-- closes .featured-courses -->
-</section>
-
-<section class="mentors">
-     <div class="pulse-badge">
-        <div class="badge-dot"></div>
-        <div class="badge-text">Mentors</div>
-      </div>
-      <h1>Meet our <span class="gradient">Proffessional Mentors </span></h1>
-      <div class="quotes">“You just can't beat the person who never gives up. <span class="author">__Babe Ruth</span></div>
-      <div class="mentor">
-        <div class="mentor-1">
-        <img src="Assets/Images/Courses/AI & ML.jpg" alt="mentor">
-        <h2>SIR <span class="gradient">Muhammad Taha</span></h2>
-        <p>Master Trainer and Founder & CEO <strong>@BYTEHEX TECH</strong> and <strong>@LEARNERA</strong></p>
-        </div>
-        <div class="mentor-2">
-        <img src="Assets/Images/Courses/AI & ML.jpg" alt="mentor">
-        <h2><span class="gradient">SIR</span> Muhammad Mubeen</h2>
-        <p>Proffessional Mentor and CO-FOUNDER & COO <strong>@BYTEHEX TECH</strong> and <strong>@LEARNERA</strong></p>
-        </div>
-      </div>
-</section>
-
-<section class="faq" id="faq">
-  <div class="faq-container">
-    
-    <div class="faq-header">
-      <span class="faq-badge">Got Questions?</span>
-      <h2 class="faq-title">Frequently Asked Questions</h2>
-      <p class="faq-subtitle">Everything you need to know about Learnera Courses, Internships, Bootcamps, and CodeFests.</p>
-    </div>
-
-    <div class="faq-accordion">
-      
-      <!-- Existing FAQ 1 -->
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span>What programs and learning tracks does Learnera offer?</span>
-          <span class="faq-icon">
-            <i class="fa-solid fa-chevron-down"></i>
-          </span>
-        </button>
-        <div class="faq-answer">
-          <p>Learnera provides a complete tech ecosystem offering self-paced & guided <strong>Courses</strong>, hands-on <strong>Learning Internships</strong>, production-focused <strong>Job-Ready Internships</strong>, intensive <strong>Bootcamps</strong>, and competitive <strong>CodeFests</strong>.</p>
-        </div>
-      </div>
-
-      <!-- Existing FAQ 2 -->
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span>What is the difference between Learning Internships and Job-Ready Internships?</span>
-          <span class="faq-icon">
-            <i class="fa-solid fa-chevron-down"></i>
-          </span>
-        </button>
-        <div class="faq-answer">
-          <p><strong>Learning Internships</strong> focus on foundational skill-building through structured projects and mentor guidance. <strong>Job-Ready Internships</strong> simulate real company environments with complex codebases, sprint reviews, and career-readiness standards.</p>
-        </div>
-      </div>
-
-      <!-- New FAQ 3 -->
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span>Are the certificates issued by Learnera verifiable?</span>
-          <span class="faq-icon">
-            <i class="fa-solid fa-chevron-down"></i>
-          </span>
-        </button>
-        <div class="faq-answer">
-          <p>Yes! Every candidate who completes a course, internship, or bootcamp receives a uniquely verifiable digital certificate that can be showcased on LinkedIn or submitted directly to recruiters.</p>
-        </div>
-      </div>
-
-      <!-- New FAQ 4 -->
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span>Do I need prior coding experience to join beginner cohorts?</span>
-          <span class="faq-icon">
-            <i class="fa-solid fa-chevron-down"></i>
-          </span>
-        </button>
-        <div class="faq-answer">
-          <p>No prior technical background is required for our beginner-level tracks. Our mentors start with absolute foundational concepts before building up to advanced production topics.</p>
-        </div>
-      </div>
-
-      <!-- New FAQ 5 -->
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span>How do live cohorts and mentor Q&A sessions work?</span>
-          <span class="faq-icon">
-            <i class="fa-solid fa-chevron-down"></i>
-          </span>
-        </button>
-        <div class="faq-answer">
-          <p>Live cohorts feature weekly interactive sessions led by industry experts, alongside dedicated Discord and WhatsApp groups where you can ask questions and receive one-on-one assistance directly from your mentors.</p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<section class="final-cta" aria-labelledby="final-cta-title">
-
-  <div class="pill">
-    <span class="badge" aria-hidden="true"></span>
-    <span class="text">YOUR FUTURE STARTS HERE</span>
-  </div>
-
-  <h1 id="final-cta-title">
-    Ready to Turn Your Knowledge Into
-    <span class="gradient">Skills?</span>
-  </h1>
-
-  <p>
-    Explore technology, strengthen your knowledge, and take
-    the next step in your learning journey with LEARNERA.
-  </p>
-
-  <div class="final-cta-actions">
-
-    <a href="courses.html"
-       class="final-cta-btn final-cta-btn--primary">
-      Explore Courses
-      <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-    </a>
-
-    <a href="register.html"
-       class="final-cta-btn final-cta-btn--secondary">
-      Demonstrate Your Skills
-      <i class="fa-solid fa-arrow-up-right-from-square"
-         aria-hidden="true"></i>
-    </a>
-
-  </div>
-
-</section>
-
-<footer class="site-footer">
-  <div class="footer-container">
-
-    <div class="footer-main">
-
-      <!-- Brand -->
-      <div class="footer-brand">
-        <a href="#top" class="footer-logo" aria-label="Learnera home">
-          LEARN<span>ERA</span><span class="footer-logo-dot">.</span>
-        </a>
-
-        <p class="footer-tagline">
-          Discover. Learn. Demonstrate.
-        </p>
-
-        <p class="footer-description">
-          Explore technology, develop practical skills, and
-          take the next step in your learning journey with Learnera.
-        </p>
-
-        <div class="footer-socials" aria-label="Social media">
-          <a href="https://linkedin.com/company/bytehex-tech"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="ByteHex Tech on LinkedIn">
-            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-          </a>
-
-          <a href="https://instagram.com/bytehextech"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="ByteHex Tech on Instagram">
-            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-          </a>
-
-          <a href="https://facebook.com/bytehextech"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="ByteHex Tech on Facebook">
-            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-          </a>
-
-          <a href="https://x.com/ByteHexTech"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="ByteHex Tech on X">
-            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Quick Links -->
-      <nav class="footer-column" aria-label="Quick links">
-        <h2>Quick Links</h2>
-        <ul>
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#courses">Courses</a></li>
-          <li><a href="#mentors">Mentors</a></li>
-          <li><a href="#faq">FAQs</a></li>
-        </ul>
-      </nav>
-
-      <!-- Programs -->
-      <nav class="footer-column" aria-label="Learning programs">
-        <h2>Our Programs</h2>
-        <ul>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="internships.html">Internships</a></li>
-          <li><a href="bootcamps.html">Bootcamps</a></li>
-          <li><a href="codefest.html">CodeFest</a></li>
-        </ul>
-      </nav>
-
-      <!-- Get Started -->
-      <div class="footer-column footer-action">
-        <h2>Start Learning</h2>
         <p>
-          Ready to explore your potential and build your skills?
+            Explore technology, strengthen your practical knowledge, and take the next step in your learning journey with LEARNERA and BYTEHEX TECH.
         </p>
-        <a href="courses.html" class="footer-cta">
-          Explore Courses
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </a>
-      </div>
 
+        <div class="final-cta-actions">
+            <button type="button" class="btn btn-primary open-enroll-modal" data-course="Modern Web & App Development (MERN Stack)">
+                Lock Your Seat Now <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <a href="#courses" class="btn btn-secondary">
+                View All Programs <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 13. Site Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <!-- Brand Info -->
+                <div class="footer-brand">
+                    <a href="#hero" class="brand-logo">
+                        <img src="./Assets/logo/Logo.png" alt="Learnera Logo">
+                        <span class="brand-text">LEARN<span>ERA</span><span class="dot">.</span></span>
+                    </a>
+                    <div class="footer-tagline">Discover. Learn. Demonstrate.</div>
+                    <p class="footer-desc">
+                        Learnera is an elite course evaluation and tech training platform powered by ByteHex Tech. Dedicated to making top-tier technical education practical, career-focused, and universally accessible.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://linkedin.com/company/bytehex-tech" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://instagram.com/bytehextech" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/bytehextech" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/ByteHexTech" target="_blank" rel="noopener noreferrer" aria-label="X Twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 1: Quick Links -->
+                <div class="footer-col">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="#hero">Home Portal</a></li>
+                        <li><a href="#overview">Overview & Mission</a></li>
+                        <li><a href="#why-us">Why Choose Us</a></li>
+                        <li><a href="#courses">Offered Courses</a></li>
+                        <li><a href="#roadmap">Learning Journey</a></li>
+                        <li><a href="#mentors">Leadership & Mentors</a></li>
+                        <li><a href="#faq">Frequently Asked</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Programs -->
+                <div class="footer-col">
+                    <h3>Our Programs</h3>
+                    <ul>
+                        <li><a href="#courses" class="open-course-details" data-course-key="webdev">MERN Web Development</a></li>
+                        <li><a href="#courses" class="open-course-details" data-course-key="python">Python Programming</a></li>
+                        <li><a href="#courses" class="open-course-details" data-course-key="aiml">Machine Learning & AI</a></li>
+                        <li><a href="#courses" class="open-course-details" data-course-key="git">Git & DevOps Sprints</a></li>
+                        <li><a href="#overview">Free Learning Internships</a></li>
+                        <li><a href="#overview">CodeFest Hackathons</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Newsletter & Updates -->
+                <div class="footer-col footer-newsletter">
+                    <h3>Stay Connected</h3>
+                    <p>Subscribe to receive cohort schedules, live webinar invites, and open internship alerts.</p>
+                    <form id="newsletterForm" class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                        <button type="submit" class="btn btn-primary btn-sm" aria-label="Subscribe">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; <span id="footer-year">2026</span> LEARNERA. All rights reserved.</p>
+                <p>Powered by <a href="https://linkedin.com/company/bytehex-tech" target="_blank" rel="noopener noreferrer">BYTEHEX TECH</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 14. Course Details Modal -->
+    <div class="modal-overlay" id="courseDetailsModal" role="dialog" aria-modal="true" aria-labelledby="modalCourseTitle">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 id="modalCourseTitle">Course Details</h3>
+                <button type="button" class="modal-close-btn" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem;">
+                    <span class="meta-tag" id="modalCourseDuration"><i class="fa-regular fa-clock"></i> Duration</span>
+                    <span class="meta-tag" id="modalCourseLevel"><i class="fa-solid fa-signal"></i> Level</span>
+                </div>
+                <div style="margin-bottom: 1rem; font-size: 0.9rem; color: #1e3a8a; font-weight: 700;">
+                    <i class="fa-solid fa-chalkboard-user"></i> Lead Mentor: <span id="modalCourseMentor" style="color: #0f172a;">Sir Muhammad Taha</span>
+                </div>
+                <p id="modalCourseDesc" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;"></p>
+
+                <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Curriculum Modules</h4>
+                <ul id="modalCourseModules" style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem; color: #334155; margin-bottom: 2rem;">
+                </ul>
+
+                <button type="button" class="btn btn-primary" id="modalEnrollBtn" style="width: 100%;">
+                    Lock Your Seat in This Cohort &rarr;
+                </button>
+            </div>
+        </div>
     </div>
 
-    <div class="footer-bottom">
-      <p>
-        &copy; <span id="footer-year">2026</span>
-        LEARNERA. All rights reserved.
-      </p>
+    <!-- 15. Enrollment / Lock Seat Modal -->
+    <div class="modal-overlay" id="enrollModal" role="dialog" aria-modal="true" aria-labelledby="enrollModalTitle">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 id="enrollModalTitle">Lock Your Seat &bull; 2026 Live Cohort</h3>
+                <button type="button" class="modal-close-btn" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+                    Fill out the quick form below. Our admissions coordinator from <strong>ByteHex Tech</strong> will contact you via WhatsApp with cohort schedule and onboarding details.
+                </p>
+                <form id="enrollmentForm">
+                    <div class="form-group">
+                        <label for="enrollName" class="form-label">Full Name *</label>
+                        <input type="text" id="enrollName" class="form-input" placeholder="e.g. Ali Ahmed" required>
+                    </div>
 
-      <p class="footer-powered">
-        Powered by <a href="https://linkedin.com/company/bytehex-tech"
-        target="_blank" rel="noopener noreferrer">BYTEHEX TECH</a>
-      </p>
+                    <div class="form-group">
+                        <label for="enrollEmail" class="form-label">Email Address *</label>
+                        <input type="email" id="enrollEmail" class="form-input" placeholder="e.g. ali@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enrollPhone" class="form-label">WhatsApp / Phone Number *</label>
+                        <input type="tel" id="enrollPhone" class="form-input" placeholder="e.g. +92 300 1234567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enrollCourseSelect" class="form-label">Select Program Track *</label>
+                        <select id="enrollCourseSelect" class="form-select" required>
+                            <option value="Modern Web & App Development (MERN Stack)">Modern Web & App Development (MERN Stack)</option>
+                            <option value="Python Programming & System Automation">Python Programming & System Automation</option>
+                            <option value="Machine Learning & Artificial Intelligence">Machine Learning & Artificial Intelligence</option>
+                            <option value="Git, GitHub & DevOps Team Collaboration">Git, GitHub & DevOps Team Collaboration</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                        Confirm Seat Reservation <i class="fa-solid fa-circle-check"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
 
-  </div>
-</footer>
+    <!-- 16. Back to Top Button -->
+    <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Scroll back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
+    <!-- 17. Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
 
-<script src="Assets/Script/app.js"></script>
+    <!-- Application Script -->
+    <script src="./Assets/Script/app.js"></script>
 </body>
 </html>
