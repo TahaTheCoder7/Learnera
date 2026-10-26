@@ -1,6 +1,6 @@
 /**
  * LEARNERA - Course Evaluation & Tech Education Portal
- * Master Client Application Script
+ * Master Client Application Script with GSAP & ScrollTrigger
  * Powered by BYTEHEX TECH
  */
 
@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${message}</span>`;
     toastContainer.appendChild(toast);
 
-    // Trigger animation
     requestAnimationFrame(() => {
       toast.classList.add("show");
     });
@@ -50,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", () => {
     const scrollY = window.pageYOffset;
 
-    // Header background toggle
     if (siteHeader) {
       if (scrollY > 30) {
         siteHeader.classList.add("scrolled");
@@ -59,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // ScrollSpy active link
     sections.forEach((section) => {
       const sectionHeight = section.offsetHeight;
       const sectionTop = section.offsetTop - 120;
@@ -75,7 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Back-to-top button visibility
     const backToTopBtn = document.getElementById("backToTopBtn");
     if (backToTopBtn) {
       if (scrollY > 400) {
@@ -86,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Back to top click
   const backToTopBtn = document.getElementById("backToTopBtn");
   if (backToTopBtn) {
     backToTopBtn.addEventListener("click", () => {
@@ -149,16 +144,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const category = card.getAttribute("data-category");
         if (filterValue === "all" || category === filterValue) {
           card.style.display = "flex";
-          setTimeout(() => {
+          if (window.gsap) {
+            gsap.fromTo(card, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" });
+          } else {
             card.style.opacity = "1";
             card.style.transform = "translateY(0)";
-          }, 50);
+          }
         } else {
-          card.style.opacity = "0";
-          card.style.transform = "translateY(10px)";
-          setTimeout(() => {
-            card.style.display = "none";
-          }, 200);
+          if (window.gsap) {
+            gsap.to(card, {
+              opacity: 0,
+              y: 10,
+              duration: 0.25,
+              onComplete: () => { card.style.display = "none"; }
+            });
+          } else {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(10px)";
+            setTimeout(() => { card.style.display = "none"; }, 200);
+          }
         }
       });
     });
@@ -196,7 +200,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const item = button.closest(".faq-item");
       const isExpanded = button.getAttribute("aria-expanded") === "true";
 
-      // Accordion single open
       faqItems.forEach(closeFaq);
 
       if (!isExpanded) {
@@ -204,7 +207,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Handle window resize dynamically for expanded items
     window.addEventListener("resize", () => {
       faqItems.forEach((item) => {
         if (item.classList.contains("active")) {
@@ -227,6 +229,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (modal) {
       modal.classList.add("open");
       document.body.style.overflow = "hidden";
+      if (window.gsap) {
+        gsap.fromTo(modal.querySelector(".modal-dialog"),
+          { scale: 0.92, opacity: 0, y: 20 },
+          { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.5)" }
+        );
+      }
     }
   }
 
@@ -332,7 +340,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Open Course Details Modal
   const detailTriggers = document.querySelectorAll(".open-course-details");
   detailTriggers.forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -364,7 +371,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Modal direct enroll button
   const modalEnrollBtn = document.getElementById("modalEnrollBtn");
   if (modalEnrollBtn) {
     modalEnrollBtn.addEventListener("click", () => {
@@ -378,8 +384,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- 8. Forms Handling & Validations ---
-
-  // Enrollment Form Submission
   const enrollmentForm = document.getElementById("enrollmentForm");
   if (enrollmentForm) {
     enrollmentForm.addEventListener("submit", (e) => {
@@ -394,21 +398,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // FAQ Question Submission Form
   const faqForm = document.getElementById("faqForm");
   if (faqForm) {
     faqForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const input = faqForm.querySelector("input");
       if (input && input.value.trim()) {
-        const query = input.value.trim();
         input.value = "";
         showToast("✅ Thank you! Your inquiry has been submitted. A mentor will reply within 2 hours.", "success");
       }
     });
   }
 
-  // Newsletter Form
   const newsletterForm = document.getElementById("newsletterForm");
   if (newsletterForm) {
     newsletterForm.addEventListener("submit", (e) => {
@@ -421,7 +422,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Platform Tour / Video Demo
   const openDemoBtn = document.getElementById("openDemoBtn");
   if (openDemoBtn) {
     openDemoBtn.addEventListener("click", () => {
@@ -431,5 +431,318 @@ document.addEventListener("DOMContentLoaded", () => {
         target.scrollIntoView({ behavior: "smooth" });
       }
     });
+  }
+
+  // =========================================================================
+  // --- 9. ADVANCED HOVER EFFECTS: SPOTLIGHT CARDS & 3D TILT ---
+  // =========================================================================
+
+  // Spotlight mouse tracking on cards
+  const spotlightCards = document.querySelectorAll(".spotlight-card");
+  spotlightCards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+    });
+  });
+
+  // Interactive 3D Tilt Effect on cards
+  const tiltCards = document.querySelectorAll(".tilt-card");
+  tiltCards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -7;
+      const rotateY = ((x - centerX) / centerX) * 7;
+
+      if (window.gsap) {
+        gsap.to(card, {
+          rotationX: rotateX,
+          rotationY: rotateY,
+          transformPerspective: 1000,
+          duration: 0.3,
+          ease: "power1.out"
+        });
+      } else {
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      }
+    });
+
+    card.addEventListener("mouseleave", () => {
+      if (window.gsap) {
+        gsap.to(card, {
+          rotationX: 0,
+          rotationY: 0,
+          duration: 0.6,
+          ease: "power2.out"
+        });
+      } else {
+        card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+      }
+    });
+  });
+
+  // Ambient Cursor Glow Follower
+  const cursorGlow = document.getElementById("cursorGlow");
+  if (cursorGlow && window.gsap && window.matchMedia("(pointer: fine)").matches) {
+    const quickX = gsap.quickTo(cursorGlow, "left", { duration: 0.5, ease: "power3" });
+    const quickY = gsap.quickTo(cursorGlow, "top", { duration: 0.5, ease: "power3" });
+
+    window.addEventListener("mousemove", (e) => {
+      quickX(e.clientX);
+      quickY(e.clientY);
+    });
+  }
+
+  // Magnetic Button Hover Effect
+  const magneticButtons = document.querySelectorAll(".btn-primary, .btn-secondary");
+  if (window.gsap && window.matchMedia("(pointer: fine)").matches) {
+    magneticButtons.forEach((btn) => {
+      btn.addEventListener("mousemove", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        gsap.to(btn, {
+          x: x * 0.22,
+          y: y * 0.22,
+          duration: 0.25,
+          ease: "power2.out"
+        });
+      });
+
+      btn.addEventListener("mouseleave", () => {
+        gsap.to(btn, {
+          x: 0,
+          y: 0,
+          duration: 0.5,
+          ease: "elastic.out(1, 0.4)"
+        });
+      });
+    });
+  }
+
+  // =========================================================================
+  // --- 10. GSAP & SCROLLTRIGGER ANIMATION ENGINE ---
+  // =========================================================================
+  if (window.gsap) {
+    if (window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+
+    // 1. Hero Entrance Timeline
+    const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    heroTl
+      .from(".site-header", { y: -50, opacity: 0, duration: 0.8 })
+      .from(".hero-content .pulse-badge", { y: -25, opacity: 0, duration: 0.7, ease: "back.out(2)" }, "-=0.3")
+      .from(".hero-title", { y: 40, opacity: 0, duration: 0.9, ease: "power4.out" }, "-=0.4")
+      .from(".hero-description", { y: 30, opacity: 0, duration: 0.8 }, "-=0.5")
+      .from(".hero-actions .btn", { scale: 0.88, y: 20, opacity: 0, stagger: 0.15, duration: 0.6, ease: "back.out(1.8)" }, "-=0.4")
+      .from(".hero-trust-row .trust-item", { opacity: 0, y: 15, stagger: 0.08, duration: 0.5 }, "-=0.3")
+      .from(".hero-card-stack", { scale: 0.88, opacity: 0, duration: 1.1, ease: "power3.out" }, "-=0.9")
+      .from(".floating-badge", { scale: 0.7, opacity: 0, stagger: 0.2, duration: 0.8, ease: "back.out(1.8)" }, "-=0.5");
+
+    // Continuous Gentle Floating for Badges
+    gsap.to(".badge-top-right", {
+      y: -12,
+      duration: 2.8,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+
+    gsap.to(".badge-bottom-left", {
+      y: 12,
+      duration: 3.2,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      delay: 0.5
+    });
+
+    // 2. Animated Stats Counter with ScrollTrigger
+    const statNumbers = document.querySelectorAll(".stat-number[data-target]");
+    statNumbers.forEach((stat) => {
+      const targetVal = parseFloat(stat.getAttribute("data-target")) || 0;
+      const suffix = stat.getAttribute("data-suffix") || "";
+      const counter = { val: 0 };
+
+      gsap.to(counter, {
+        val: targetVal,
+        duration: 2.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: stat,
+          start: "top 88%",
+          once: true
+        },
+        onUpdate: () => {
+          stat.textContent = Math.floor(counter.val).toLocaleString() + suffix;
+        }
+      });
+    });
+
+    // 3. Section Headers Reveal
+    document.querySelectorAll(".section-header").forEach((header) => {
+      gsap.from(header.children, {
+        scrollTrigger: {
+          trigger: header,
+          start: "top 85%"
+        },
+        y: 35,
+        opacity: 0,
+        stagger: 0.14,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+    });
+
+    // 4. Overview Section Reveals
+    if (document.querySelector(".overview-content")) {
+      gsap.from(".overview-content > *", {
+        scrollTrigger: {
+          trigger: ".overview",
+          start: "top 75%"
+        },
+        y: 30,
+        opacity: 0,
+        stagger: 0.12,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+
+      gsap.from(".overview-visual", {
+        scrollTrigger: {
+          trigger: ".overview-visual",
+          start: "top 80%"
+        },
+        scale: 0.92,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+      });
+    }
+
+    // 5. Why Choose Us Cards Staggered Pop
+    if (document.querySelector(".why-cards-grid")) {
+      gsap.from(".why-card", {
+        scrollTrigger: {
+          trigger: ".why-cards-grid",
+          start: "top 80%"
+        },
+        y: 50,
+        opacity: 0,
+        stagger: 0.12,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+    }
+
+    // 6. Roadmap Steps Cascading Reveal
+    if (document.querySelector(".roadmap-timeline")) {
+      gsap.from(".timeline-step", {
+        scrollTrigger: {
+          trigger: ".roadmap-timeline",
+          start: "top 80%"
+        },
+        y: 45,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 0.85,
+        ease: "back.out(1.4)"
+      });
+    }
+
+    // 7. Featured Course Cards Entrance
+    if (document.querySelector(".courses-grid")) {
+      gsap.from(".course-card", {
+        scrollTrigger: {
+          trigger: ".courses-grid",
+          start: "top 80%"
+        },
+        y: 50,
+        opacity: 0,
+        stagger: 0.14,
+        duration: 0.85,
+        ease: "power3.out"
+      });
+    }
+
+    // 8. Mentors Cards Pop
+    if (document.querySelector(".mentors-grid")) {
+      gsap.from(".mentor-card", {
+        scrollTrigger: {
+          trigger: ".mentors-grid",
+          start: "top 80%"
+        },
+        y: 45,
+        opacity: 0,
+        stagger: 0.18,
+        duration: 0.9,
+        ease: "back.out(1.5)"
+      });
+
+      gsap.from(".mentorship-promise", {
+        scrollTrigger: {
+          trigger: ".mentorship-promise",
+          start: "top 88%"
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+    }
+
+    // 9. Testimonial Cards Entrance
+    if (document.querySelector(".testimonials-grid")) {
+      gsap.from(".testimonial-card", {
+        scrollTrigger: {
+          trigger: ".testimonials-grid",
+          start: "top 80%"
+        },
+        y: 40,
+        opacity: 0,
+        stagger: 0.14,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+    }
+
+    // 10. FAQ Items Cascade
+    if (document.querySelector(".faq-accordion")) {
+      gsap.from(".faq-item", {
+        scrollTrigger: {
+          trigger: ".faq-accordion",
+          start: "top 82%"
+        },
+        y: 25,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.65,
+        ease: "power2.out"
+      });
+    }
+
+    // 11. Final CTA Scale In
+    if (document.querySelector(".final-cta")) {
+      gsap.from(".final-cta", {
+        scrollTrigger: {
+          trigger: ".final-cta",
+          start: "top 85%"
+        },
+        scale: 0.92,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+      });
+    }
   }
 });

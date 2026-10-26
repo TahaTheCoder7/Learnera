@@ -2073,3 +2073,205 @@ h1, h2, h3, h4, h5, h6 {
     animation: none;
   }
 }
+
+/* ==========================================================================
+   ADVANCED HOVER EFFECTS, SPOTLIGHT CARDS, 3D TILT & GSAP ENHANCEMENTS
+   ========================================================================== */
+
+/* Cursor Glow Follower */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, rgba(99, 102, 241, 0.04) 40%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+body:hover .cursor-glow {
+  opacity: 1;
+}
+
+/* 3D Tilt Perspective on Grid Containers */
+.why-cards-grid,
+.courses-grid,
+.mentors-grid,
+.testimonials-grid,
+.hero-visual {
+  perspective: 1200px;
+}
+
+/* Spotlight Card Effect (Linear / Vercel style) */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  will-change: transform;
+}
+
+.spotlight-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(37, 99, 235, 0.12), transparent 75%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.spotlight-card:hover::after {
+  opacity: 1;
+}
+
+/* 3D Tilt Card Base */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.tilt-card:hover {
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.18), 0 0 0 1px rgba(37, 99, 235, 0.1);
+}
+
+/* Button Gleam / Shine Reflection on Hover */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -80%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: rotate(25deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.btn-primary:hover::after {
+  left: 130%;
+  transition: left 0.75s ease-in-out;
+}
+
+/* Button Micro-Elevation on Hover */
+.btn-secondary {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.42);
+}
+
+/* Pulse Badge Hover Reaction */
+.pulse-badge {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.pulse-badge:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.14);
+}
+
+/* Course Card Hover Enhancements */
+.course-card:hover .course-media img {
+  transform: scale(1.08);
+  filter: brightness(1.04);
+}
+
+.course-card:hover .course-rating-overlay {
+  transform: translateY(-2px);
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Mentor Avatar Rotating Glowing Aura */
+.mentor-avatar-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.mentor-avatar-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #8b5cf6, #06b6d4, #2563eb);
+  background-size: 300% 300%;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: rotateGlow 5s linear infinite;
+}
+
+.mentor-card:hover .mentor-avatar-wrapper::before {
+  opacity: 1;
+}
+
+.mentor-avatar {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mentor-card:hover .mentor-avatar {
+  transform: scale(1.04);
+}
+
+@keyframes rotateGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Why-Us Card Icon Pop on Hover */
+.why-card:hover .why-card-icon {
+  transform: scale(1.12) rotate(4deg);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+}
+
+/* Roadmap Step Node Glow on Hover */
+.timeline-step:hover .step-node {
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.45);
+}
+
+/* Brand Logo Hover */
+.brand-logo img {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.brand-logo:hover img {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+/* Final CTA Glow Pulsing */
+.final-cta {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.final-cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 80px rgba(37, 99, 235, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
